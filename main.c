@@ -1,13 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <time.h>
 #include "menu/menu.h"
+#include "utilities/utilities.h"
 
 void sessionInfo() {
     time_t now;
     struct tm *local;
     char dateTime[100];
-    int totalAccounts = 0; // Add the count accounts soon
+    int totalAccounts = countAccounts();
 
     time(&now);
     local = localtime(&now);
@@ -22,6 +24,7 @@ void sessionInfo() {
 }
 
 int main() {
+    srand(time(NULL)); // Ensures that the random generator starts with a random seed
     char input[50];
 
     sessionInfo();

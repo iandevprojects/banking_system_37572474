@@ -1,0 +1,6 @@
+Name: Ian Peter
+ID Number: 1232131231
+Account Number: 794697408
+Account Type: Savings
+PIN: 1234
+Balance: 0.00
