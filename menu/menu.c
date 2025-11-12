@@ -15,7 +15,7 @@ void showMenu()
     printf("5. Remittance    \t(remittance)\n");
     printf("6. Exit System   \t(exit)\n\n");
     printf("===================================\n\n");
-    printf("Enter your choice (number or keyword):");
+    printf("Enter your choice (number or keyword): ");
 }
 
 void handleMenuChoice(char *input)
