@@ -1,0 +1,6 @@
+Name: Ian Peter
+ID Number: 12312312312
+Account Number: 503807189
+Account Type: Savings
+PIN: 5678
+Balance: 0.00
