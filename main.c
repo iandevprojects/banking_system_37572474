@@ -20,7 +20,6 @@ void sessionInfo() {
     printf("===================================\n\n");
     printf("Session Time: %s\n", dateTime);
     printf("Total Active Accounts: %d\n\n", totalAccounts);
-    printf("===================================\n\n");
 }
 
 int main() {
