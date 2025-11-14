@@ -1,0 +1,6 @@
+Name: Ian Peter
+ID Number: 061105100673
+Account Number: 9727265
+Account Type: Savings
+PIN: 1234
+Balance: 5150.00

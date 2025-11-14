@@ -6,6 +6,7 @@
 #include "../create/create.h"
 #include "../utilities/utilities.h"
 #include "../delete/delete.h"
+#include "../deposit/deposit.h"
 
 void showMenu()
 {
@@ -44,9 +45,11 @@ void handleMenuChoice(char *input)
     else if (strcmp(input, "3") == 0 || strcmp(input, "deposit") == 0)
     {
         printf("\n");
-        printf("===================================\n");
-        printf("          DEPOSIT MONEY\n");
         printf("===================================\n\n");
+        printf("          DEPOSIT MONEY\n\n");
+        printf("===================================\n\n");
+        depositAmount();
+        
     }
     else if (strcmp(input, "4") == 0 || strcmp(input, "withdraw") == 0)
     {
