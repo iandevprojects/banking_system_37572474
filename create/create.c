@@ -153,7 +153,7 @@ void createAccount()
         }
         else
         {
-            printf("Invalid choice! Please enter a valid number or keyword.\n\n");
+            printf("Invalid choice. Please enter a valid number or keyword.\n\n");
         }
     }
 
@@ -166,7 +166,7 @@ void createAccount()
 
         if (fgets(pin, sizeof(pin), stdin) == NULL)
         {
-            printf("Input error! Try again.\n");
+            printf("Input error. Try again.\n");
             continue;
         }
 
@@ -189,7 +189,7 @@ void createAccount()
         break;
     }
 
-    printf("PIN set successfully!\n\n");
+    printf("PIN set successfully.\n\n");
 
     // Account Number section
     // Generate account number
@@ -215,7 +215,7 @@ void createAccount()
     FILE *accountFile = fopen(filePath, "w");
     if (!accountFile)
     {
-        printf("Failed to create account file!\n\n");
+        printf("Failed to create account file.\n\n");
         return;
     }
 

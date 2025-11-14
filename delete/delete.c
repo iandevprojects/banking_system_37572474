@@ -164,7 +164,7 @@ void deleteAccount()
     accFile = fopen(accountFilePath, "r");
     if (!accFile)
     {
-        printf("Failed to open account file!\n");
+        printf("Failed to open account file.\n");
         return;
     }
 
@@ -242,7 +242,7 @@ void deleteAccount()
         }
         else
         {
-            printf("Invalid input! Please enter 'yes' or 'no'.\n\n");
+            printf("Invalid input. Please enter 'yes' or 'no'.\n\n");
             continue;
         }
     }
