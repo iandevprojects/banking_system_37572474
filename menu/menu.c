@@ -7,6 +7,7 @@
 #include "../utilities/utilities.h"
 #include "../delete/delete.h"
 #include "../deposit/deposit.h"
+#include "../withdrawal/withdrawal.h"
 
 void showMenu()
 {
@@ -54,9 +55,10 @@ void handleMenuChoice(char *input)
     else if (strcmp(input, "4") == 0 || strcmp(input, "withdraw") == 0)
     {
         printf("\n");
-        printf("===================================\n");
-        printf("          WITHDRAW MONEY\n");
         printf("===================================\n\n");
+        printf("          WITHDRAW MONEY\n\n");
+        printf("===================================\n\n");
+        withdrawAmount();
     }
     else if (strcmp(input, "5") == 0 || strcmp(input, "remittance") == 0)
     {
