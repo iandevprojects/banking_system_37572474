@@ -8,6 +8,7 @@
 #include "../delete/delete.h"
 #include "../deposit/deposit.h"
 #include "../withdrawal/withdrawal.h"
+#include "../remittance/remittance.h"
 
 void showMenu()
 {
@@ -66,6 +67,7 @@ void handleMenuChoice(char *input)
         printf("===================================\n");
         printf("             REMITTANCE\n");
         printf("===================================\n\n");
+        remittanceAmount();
     }
     else if (strcmp(input, "6") == 0 || strcmp(input, "exit") == 0)
     {
