@@ -1,0 +1,6 @@
+Name: Ian Test
+ID Number: 061105100673
+Account Number: 77529847
+Account Type: Savings
+PIN: 1234
+Balance: 500.00
