@@ -1,0 +1,5 @@
+[17 November 2025, 09:30 PM] CREATE - Account: 5317869 | Name: Jon Jones
+[17 November 2025, 09:31 PM] DELETE - Account: 5317869 | Name: Jon Jones
+[17 November 2025, 09:31 PM] DEPOSIT - Account: 9727265 | Amount: RM 50000
+[17 November 2025, 09:32 PM] WITHDRAWAL - Account: 9727265 | Amount: RM 5000
+[17 November 2025, 09:32 PM] REMITTANCE - From Account: 9727265 (Savings) TO Account: 46234824 (Current) | Amount: RM 1234 | Fee: RM 24.68 | Total Deducted: RM 1258.68

@@ -1,0 +1,6 @@
+Name: Test
+ID Number: 12323123123
+Account Number: 46234824
+Account Type: Current
+PIN: 1234
+Balance: 1234.00
