@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "../utilities/utilities.h"
 
 void deleteAccount()
@@ -159,6 +160,27 @@ void deleteAccount()
 
     printf("ID verification successful.\n");
 
+    // Name stored for transaction log to be used later
+    char storedName[100] = "";
+    accFile = fopen(accountFilePath, "r");
+    if (!accFile)
+    {
+        printf("Failed to open account file.\n");
+        return;
+    }
+
+    while (fgets(fileLine, sizeof(fileLine), accFile))
+    {
+        if (strncmp(fileLine, "Name:", 5) == 0)
+        {
+            strcpy(storedName, fileLine + 6);
+            trimWhitespace(storedName);
+            break;
+        }
+    }
+
+    fclose(accFile);
+
     // PIN Section
     char storedPIN[10] = "";
     accFile = fopen(accountFilePath, "r");
@@ -247,7 +269,7 @@ void deleteAccount()
         }
     }
 
-    printf("Confirmed. Continuing with deletion...\n");
+    printf("Confirmed. Continuing with deletion...\n\n");
 
     // Updating the database
     if (remove(accountFilePath) != 0)
@@ -290,5 +312,30 @@ void deleteAccount()
     remove("database/index.txt");
     rename("database/index_temp.txt", "database/index.txt");
 
-    printf("\nAccount has successfully been deleted.\n\n");
+    printf("===================================\n\n");
+    printf("   ACCOUNT SUCCESSFULLY DELETED\n\n");
+    printf("===================================\n\n");
+
+    FILE *logFile = fopen("database/log.txt", "a");
+    if (!logFile)
+    {
+        printf("Warning: Could not open log file.\n");
+    }
+    else
+    {
+        time_t now;
+        struct tm *local;
+        char dateTime[100];
+
+        time(&now);
+        local = localtime(&now);
+
+        strftime(dateTime, sizeof(dateTime), "%d %B %Y, %I:%M %p", local);
+
+        fprintf(logFile,
+                "[%s] DELETE - Account: %ld | Name: %s\n",
+                dateTime, selectedAccount, storedName);
+
+        fclose(logFile);
+    }
 }

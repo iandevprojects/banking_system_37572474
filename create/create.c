@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "create.h"
 #include "../utilities/utilities.h"
 
@@ -231,4 +232,27 @@ void createAccount()
     printf("===================================\n\n");
     printf("   ACCOUNT SUCCESSFULLY CREATED\n\n");
     printf("===================================\n\n");
+
+    FILE *logFile = fopen("database/log.txt", "a");
+    if (!logFile)
+    {
+        printf("Warning: Could not open log file.\n");
+    }
+    else
+    {
+        time_t now;
+        struct tm *local;
+        char dateTime[100];
+
+        time(&now);
+        local = localtime(&now);
+
+        strftime(dateTime, sizeof(dateTime), "%d %B %Y, %I:%M %p", local);
+
+        fprintf(logFile,
+                "[%s] CREATE - Account: %d | Name: %s\n",
+                dateTime, accountNumber, name);
+
+        fclose(logFile);
+    }
 }

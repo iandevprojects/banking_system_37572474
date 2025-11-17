@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "../utilities/utilities.h"
 
 void depositAmount()
@@ -228,4 +229,26 @@ void depositAmount()
     printf("\nDeposit successful.\n");
     printf("Account Number: %ld\n", accountNumber);
     printf("Updated balance: RM %.2f\n\n", currentBalance + depositAmount);
+
+    FILE *logFile = fopen("database/log.txt", "a");
+    if (!logFile)
+    {
+        printf("Warning: Could not open log file.\n");
+    }
+    else
+    {
+        time_t now;
+        struct tm *local;
+        char dateTime[100];
+
+        time(&now);
+        local = localtime(&now);
+
+        strftime(dateTime, sizeof(dateTime), "%d %B %Y, %I:%M %p", local);
+
+        fprintf(logFile, "[%s] DEPOSIT - Account: %ld | Amount: RM %d\n",
+                dateTime, accountNumber, depositAmount);
+
+        fclose(logFile);
+    }
 }

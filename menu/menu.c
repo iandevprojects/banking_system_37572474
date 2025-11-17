@@ -64,8 +64,8 @@ void handleMenuChoice(char *input)
     else if (strcmp(input, "5") == 0 || strcmp(input, "remittance") == 0)
     {
         printf("\n");
-        printf("===================================\n");
-        printf("             REMITTANCE\n");
+        printf("===================================\n\n");
+        printf("             REMITTANCE\n\n");
         printf("===================================\n\n");
         remittanceAmount();
     }

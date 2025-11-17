@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "../utilities/utilities.h"
 
 void remittanceAmount()
@@ -344,14 +345,37 @@ void remittanceAmount()
     rename(recvTemp, recPath);
 
     // Receipt Section
-    printf("\n======================================\n\n");
+    printf("\n=====================================n\n");
     printf("        REMITTANCE RECEIPT\n\n");
-    printf("======================================\n\n");
+    printf("====================================\n\n");
     printf("User Account: %ld (%s)\n", userAcc, userType);
     printf("Recipient Account: %ld (%s)\n", recAcc, recType);
     printf("Amount Sent: RM %d\n", sendAmount);
     printf("Remittance Fee: RM %.2f\n", fee);
     printf("Total Deducted: RM %.2f\n", totalDeduct);
     printf("New User Balance: RM %.2f\n", newuserBalance);
-    printf("=========================================\n\n");
+    printf("====================================\n\n");
+
+    FILE *logFile = fopen("database/log.txt", "a");
+    if (!logFile)
+    {
+        printf("Warning: Could not open log file.\n");
+    }
+    else
+    {
+        time_t now;
+        struct tm *local;
+        char dateTime[100];
+
+        time(&now);
+        local = localtime(&now);
+
+        strftime(dateTime, sizeof(dateTime), "%d %B %Y, %I:%M %p", local);
+
+        fprintf(logFile,
+                "[%s] REMITTANCE - From Account: %ld (%s) TO Account: %ld (%s) | Amount: RM %d | Fee: RM %.2f | Total Deducted: RM %.2f\n",
+                dateTime, userAcc, userType, recAcc, recType, sendAmount, fee, totalDeduct);
+
+        fclose(logFile);
+    }
 }
